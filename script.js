@@ -9,11 +9,12 @@ let num2 = '';
 let expression = '';
 let expressionAns = 0;
 let isNum2 = false;
+let num2Counter = 0;
 
 buttons.forEach(button => {
     button.addEventListener('click', function() {
         if(!isNaN(button.innerHTML)){
-            if(isNum2 === false){
+            if(!isNum2){
                 num1 += button.innerHTML;
 
                 if(numfield.innerHTML === '0'){
@@ -25,8 +26,14 @@ buttons.forEach(button => {
             }
             else{
                 num2 += button.innerHTML;
-                if(numfield.innerHTML === num1){
-                    numfield.innerHTML = button.innerHTML;   
+                
+                if(numfield.innerHTML === button.innerHTML && num2Counter === 0){
+                    // pass
+                    num2Counter = 1;
+                }
+                else if(numfield.innerHTML !== button.innerHTML && num2Counter === 0){
+                    numfield.innerHTML = button.innerHTML;
+                    num2Counter = 1;
                 }
                 else{
                     numfield.innerHTML += button.innerHTML;
@@ -44,15 +51,28 @@ buttons.forEach(button => {
 
             }
             else{
-                if(numfield.innerHTML === num1){
+                if(!isNum2){
                     expression += `${num1} ${button.innerHTML} `;
                     expressions.innerHTML = expression;
                     isNum2 = true;
                 }
-                else if(numfield.innerHTML === num2){
+                else if(isNum2){
                     expression += num2
-                    expressionAns = evaluate(expression)
-                    console.log(expressionAns)
+                    if(expression.includes('×')){
+                        expression = expression.replace('×', '*');
+                    }
+                    else if(expression.includes('÷')){
+                        expression = expression.replace('÷', '/');
+                    }
+                    expressionAns = eval(expression)
+                    console.log(expression, expressionAns)
+
+                    numfield.innerHTML = expressionAns;
+                    num1 = expressionAns;
+                    expression = `${num1} ${button.innerHTML} `
+                    expressions.innerHTML = expression
+                    num2 = '';
+                    num2Counter = 0;
                 }
             }
 
