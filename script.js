@@ -49,7 +49,32 @@ buttons.forEach(button => {
                 numfield.innerHTML = '0';
             }
             else if(button.innerHTML === 'DEL'){
-
+                if(numfield.innerHTML === '0'){
+                    // pass
+                }
+                else if(!isNum2){
+                    if(numfield.innerHTML.length === 1){
+                        num1 = '';
+                        numfield.innerHTML = '0';
+                    }
+                    else{
+                        num1 = num1.slice(0, -1);
+                        numfield.innerHTML = num1
+                    }
+                }
+                else if(isNum2){
+                    if(num2.length === 0){
+                        // pass
+                    }
+                    else if(numfield.innerHTML.length === 1){
+                        num2 = '';
+                        numfield.innerHTML = '0';
+                    }
+                    else{
+                        num2 = num2.slice(0, -1);
+                        numfield.innerHTML = num2
+                    }
+                }
             }
             else if(button.innerHTML === '='){
 

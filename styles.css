@@ -59,9 +59,10 @@ img{
     text-align: end;
     padding: 0px 10px;
     color: #001a39;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap; 
+    overflow-x: hidden; /* Hide overflow horizontally */
+    white-space: nowrap; /* Prevent text wrapping */
+    text-align: right; /* Align text to the right */
+    text-overflow: ellipsis; /* Add ellipsis for hidden content */
 }
 
 .cal-buttons{
