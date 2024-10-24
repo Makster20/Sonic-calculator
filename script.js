@@ -1,6 +1,3 @@
-
-
-
 const numfield = document.querySelector('.numfield');
 const expressions = document.querySelector('.expressions')
 const buttons = document.querySelectorAll('.button');
@@ -42,7 +39,14 @@ buttons.forEach(button => {
         }
         else{
             if (button.innerHTML === 'AC'){
-                
+                num1 = '';
+                num2 = '';
+                expression = '';
+                expressionAns = 0;
+                isNum2 = false;
+                num2Counter = 0;
+                expressions.innerHTML = '';
+                numfield.innerHTML = '0';
             }
             else if(button.innerHTML === 'DEL'){
 
@@ -65,7 +69,6 @@ buttons.forEach(button => {
                         expression = expression.replace('÷', '/');
                     }
                     expressionAns = eval(expression)
-                    console.log(expression, expressionAns)
 
                     numfield.innerHTML = expressionAns;
                     num1 = expressionAns;
