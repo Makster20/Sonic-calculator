@@ -160,3 +160,23 @@ buttons.forEach(button => {
         
     });
 });
+
+
+// Settings Page
+
+settingIcon = document.querySelector('.settings');
+settingsPage = document.querySelector('.settingspage');
+overlay = document.querySelector('.overlay');
+settingClose = document.querySelector('.close-button');
+
+settingIcon.addEventListener('click', function() {
+
+    settingsPage.classList.add('active'); // Adds the 'active' class to settingsPage
+    overlay.classList.add('active'); // Adds the 'active' class to settingsPage
+});
+
+settingClose.addEventListener('click', function() {
+
+    settingsPage.classList.remove('active'); // Adds the 'active' class to settingsPage
+    overlay.classList.remove('active'); // Adds the 'active' class to settingsPage
+});

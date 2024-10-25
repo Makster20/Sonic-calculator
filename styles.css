@@ -2,8 +2,7 @@ html, body{
     height: 100%;
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
+    transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 body{
@@ -13,9 +12,31 @@ body{
     font-weight: 400;
 }
 
-h1{
-    font-size: 40px;
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the title initially */
+    position: relative; /* Allows absolute positioning of the SVG */
+    padding: 0.5em;
+}
+
+h1 {
     color: white;
+    font-size: 40px;
+    cursor: default;
+}
+svg {
+    position: absolute; /* Positions the SVG independently */
+    right: 4em; /* Positions it on the far right */
+    top: 33%; /* Centers it vertically */
+    width: 50px;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+svg:hover{
+    transform: scale(1.2);
 }
 
 section {
@@ -28,7 +49,7 @@ section {
 }
 
 img{
-    width: 70%;
+    width: 60%;
 }
 
 
@@ -92,8 +113,102 @@ img{
     width: 100%; /* Ensure it spans full width */
 }
 
-
-
 .button:hover{
     transform: scale(1.05);
+}
+
+.settingspage{
+    font-size: 40px;
+    position: fixed;
+    color: white;
+    backdrop-filter: blur(10px); /* Applies blur to the background */
+    -webkit-backdrop-filter: blur(10px); /* For Safari support */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 0.5s ease-in-out;
+    border-radius: 16px;
+    padding: 10px 10px;  
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* Adds a shadow */
+}
+
+.settingspage.active{
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.settingsheader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5em;
+}
+
+.title{
+    cursor: default;
+}
+
+.close-button{
+    display: inline-block;
+    position: absolute; /* Positions the SVG independently */
+    right: 0.8em; /* Positions it on the far right */
+    width: 50px;
+    font-size: 2em;
+    font-weight: 200;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.close-button:hover{
+    transform: scale(1.2);
+}
+
+.characters{
+    margin-top: 100px;
+    margin-bottom: 50px;
+    display: flex;
+}
+
+.character{
+    padding: 50px;
+    border-radius: 50px;
+    margin: 0px 50px;
+    background-color: #00b7ff;
+    border: 6px solid black;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.character:hover{
+    transform: scale(1.1);
+}
+
+.sonic{
+    background-color: #1643a3;
+}
+
+.tails{
+    background-color: #ffc904;
+}
+
+.cole{
+    background-color: #272727;
+}
+
+.wilk{
+    background-color: aliceblue;
+    color: black;
+}
+
+.overlay{
+    position: fixed;
+    opacity: 0;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    pointer-events: none;
+}
+
+.overlay.active{
+    pointer-events: all;
 }
