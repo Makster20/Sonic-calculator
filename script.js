@@ -7,6 +7,7 @@ let expression = '';
 let expressionAns = 0;
 let isNum2 = false;
 let num2Counter = 0;
+let equalcheck = false
 
 buttons.forEach(button => {
     button.addEventListener('click', function() {
@@ -22,19 +23,33 @@ buttons.forEach(button => {
                 }
             }
             else{
-                num2 += button.innerHTML;
-                
-                if(numfield.innerHTML === button.innerHTML && num2Counter === 0){
-                    // pass
-                    num2Counter = 1;
-                }
-                else if(numfield.innerHTML !== button.innerHTML && num2Counter === 0){
+                if(equalcheck === true){
+                    num1 = button.innerHTML;
+                    num2 = '';
+                    expression = '';
+                    expressionAns = 0;
+                    isNum2 = false;
+                    num2Counter = 0;
+                    expressions.innerHTML = '';
                     numfield.innerHTML = button.innerHTML;
-                    num2Counter = 1;
+                    equalcheck = false;
                 }
                 else{
-                    numfield.innerHTML += button.innerHTML;
+                    num2 += button.innerHTML;
+                    
+                    if(numfield.innerHTML === button.innerHTML && num2Counter === 0){
+                        // pass
+                        num2Counter = 1;
+                    }
+                    else if(numfield.innerHTML !== button.innerHTML && num2Counter === 0){
+                        numfield.innerHTML = button.innerHTML;
+                        num2Counter = 1;
+                    }
+                    else{
+                        numfield.innerHTML += button.innerHTML;
+                    }
                 }
+                
             }
         }
         else{
@@ -77,10 +92,46 @@ buttons.forEach(button => {
                 }
             }
             else if(button.innerHTML === '='){
+                if(num2 === ''){
+                    // pass
+                }
+                else{
+                    expression += num2;
+                    if(expression.includes('×')){
+                        expression = expression.replace('×', '*');
+                    }
+                    else if(expression.includes('÷')){
+                        expression = expression.replace('÷', '/');
+                    }
+                    expressionAns = eval(expression);
+
+                    numfield.innerHTML = expressionAns;
+                    expressions.innerHTML += `${num2} =`;
+                    num2 = '';
+                    num2Counter = 0;
+
+                    equalcheck = true;
+
+                }
 
             }
             else{
-                if(!isNum2){
+                if(expression.charAt(expression.length - 2) === '+' ||
+                expression.charAt(expression.length - 2) === '-' ||
+                expression.charAt(expression.length - 2) === '*' ||
+                expression.charAt(expression.length - 2) === '/'){
+
+                    expression = expression.slice(0, -2) + button.innerHTML + ' ';
+                    expressions.innerHTML = expression;
+
+                    if(expression.includes('×')){
+                        expression = expression.replace('×', '*');
+                    }
+                    else if(expression.includes('÷')){
+                        expression = expression.replace('÷', '/');
+                    }
+                }
+                else if(!isNum2){
                     expression += `${num1} ${button.innerHTML} `;
                     expressions.innerHTML = expression;
                     isNum2 = true;
