@@ -164,10 +164,27 @@ buttons.forEach(button => {
 
 // Settings Page
 
-settingIcon = document.querySelector('.settings');
-settingsPage = document.querySelector('.settingspage');
-overlay = document.querySelector('.overlay');
-settingClose = document.querySelector('.close-button');
+const settingIcon = document.querySelector('.settings');
+const settingsPage = document.querySelector('.settingspage');
+const overlay = document.querySelector('.overlay');
+const settingClose = document.querySelector('.close-button');
+
+// buttons for customization
+const sonicButton = document.querySelector('.sonic');
+const tailsButton = document.querySelector('.tails');
+const coleButton = document.querySelector('.cole');
+const wilkButton = document.querySelector('.wilk');
+
+// Elements to change when any of the customization settings are changed
+const image = document.querySelector('#img');
+const pageTitle = document.querySelector('title');
+const header = document.querySelector('#header');
+const body = document.querySelector('body');
+const calculator = document.querySelector('.calculator');
+const calculatorNumfield = document.querySelector('.numfield');
+const calculatorButtons = document.querySelectorAll('.button');
+
+// Open settings page
 
 settingIcon.addEventListener('click', function() {
 
@@ -176,7 +193,69 @@ settingIcon.addEventListener('click', function() {
 });
 
 settingClose.addEventListener('click', function() {
-
     settingsPage.classList.remove('active'); // Adds the 'active' class to settingsPage
     overlay.classList.remove('active'); // Adds the 'active' class to settingsPage
+});
+
+
+// Functions to change the theme of the calculator when clicked
+
+sonicButton.addEventListener('click', function() {
+    img.src = 'imgs/sonic.webp';
+    img.alt = 'Sonic';
+    img.style.width = '60%';
+    header.innerHTML = 'Sonic Calculator';
+    pageTitle.innerHTML = 'Sonic Calculator';
+    body.style.background = 'linear-gradient(45deg, #1643a3, #00b7ff)';
+    calculator.style.backgroundColor = '#2263d2';
+    calculator.style.borderColor = '#102c5d';
+    calculatorNumfield.style.backgroundColor = '#d4faff';
+    calculatorButtons.forEach(function(button){
+        button.style.backgroundColor = '#102c5d';
+    });
+}); 
+
+tailsButton.addEventListener('click', function() {
+    img.src = 'imgs/tails.webp'
+    img.alt = 'Tails'
+    img.style.width = '80%';
+    header.innerHTML = 'Tails Calculator';
+    pageTitle.innerHTML = 'Tails Calculator';
+    body.style.background = 'linear-gradient(45deg, #ff5e00, #ffc904)';
+    calculator.style.backgroundColor = '#ffae00';
+    calculator.style.borderColor = '#ff6a00';
+    calculatorNumfield.style.backgroundColor = '#fff4d4';
+    calculatorButtons.forEach(function(button){
+        button.style.backgroundColor = '#ff6a00';
+    });
+});
+
+coleButton.addEventListener('click', function() {
+    img.src = 'imgs/tails.webp'
+    img.alt = 'Tails'
+    img.style.width = '80%';
+    header.innerHTML = 'Tails Calculator';
+    pageTitle.innerHTML = 'Tails Calculator';
+    body.style.background = 'linear-gradient(45deg, #ff5e00, #ffc904)';
+    calculator.style.backgroundColor = '#ffae00';
+    calculator.style.borderColor = '#ff6a00';
+    calculatorNumfield.style.backgroundColor = '#fff4d4';
+    calculatorButtons.forEach(function(button){
+        button.style.backgroundColor = '#ff6a00';
+    });
+});
+
+wilkButton.addEventListener('click', function() {
+    img.src = 'imgs/tails.webp'
+    img.alt = 'Tails'
+    img.style.width = '80%';
+    header.innerHTML = 'Tails Calculator';
+    pageTitle.innerHTML = 'Tails Calculator';
+    body.style.background = 'linear-gradient(45deg, #ff5e00, #ffc904)';
+    calculator.style.backgroundColor = '#ffae00';
+    calculator.style.borderColor = '#ff6a00';
+    calculatorNumfield.style.backgroundColor = '#fff4d4';
+    calculatorButtons.forEach(function(button){
+        button.style.backgroundColor = '#ff6a00';
+    });
 });
