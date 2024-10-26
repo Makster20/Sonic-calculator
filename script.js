@@ -205,9 +205,12 @@ sonicButton.addEventListener('click', function() {
     img.alt = 'Sonic';
     img.style.width = '60%';
     header.innerHTML = 'Sonic Calculator';
+    settingIcon.style.color = 'white';
     pageTitle.innerHTML = 'Sonic Calculator';
+    header.style.color = 'white';
     body.style.background = 'linear-gradient(45deg, #1643a3, #00b7ff)';
     calculator.style.backgroundColor = '#2263d2';
+    expressions.style.color = 'white';
     calculator.style.borderColor = '#102c5d';
     calculatorNumfield.style.backgroundColor = '#d4faff';
     calculatorButtons.forEach(function(button){
@@ -220,8 +223,11 @@ tailsButton.addEventListener('click', function() {
     img.alt = 'Tails'
     img.style.width = '80%';
     header.innerHTML = 'Tails Calculator';
+    settingIcon.style.color = 'white';
+    header.style.color = 'white';
     pageTitle.innerHTML = 'Tails Calculator';
     body.style.background = 'linear-gradient(45deg, #ff5e00, #ffc904)';
+    expressions.style.color = 'white';
     calculator.style.backgroundColor = '#ffae00';
     calculator.style.borderColor = '#ff6a00';
     calculatorNumfield.style.backgroundColor = '#fff4d4';
@@ -231,31 +237,39 @@ tailsButton.addEventListener('click', function() {
 });
 
 coleButton.addEventListener('click', function() {
-    img.src = 'imgs/tails.webp'
-    img.alt = 'Tails'
-    img.style.width = '80%';
-    header.innerHTML = 'Tails Calculator';
-    pageTitle.innerHTML = 'Tails Calculator';
-    body.style.background = 'linear-gradient(45deg, #ff5e00, #ffc904)';
-    calculator.style.backgroundColor = '#ffae00';
-    calculator.style.borderColor = '#ff6a00';
-    calculatorNumfield.style.backgroundColor = '#fff4d4';
+    img.src = 'imgs/cole.png'
+    img.alt = 'Cole'
+    img.style.width = '100%';
+    header.innerHTML = 'Cole Calculator';
+    settingIcon.style.color = 'white';
+    header.style.color = 'white';
+    pageTitle.innerHTML = 'Cole Calculator';
+    body.style.background = 'linear-gradient(45deg, #232323, #858585)';
+    calculator.style.backgroundColor = '#505050';
+    expressions.style.color = 'white';
+    calculator.style.borderColor = '#202020';
+    calculatorNumfield.style.backgroundColor = '#e5e5e5';
     calculatorButtons.forEach(function(button){
-        button.style.backgroundColor = '#ff6a00';
+        button.style.backgroundColor = '#202020';
+        button.style.color = 'white';
     });
 });
 
 wilkButton.addEventListener('click', function() {
-    img.src = 'imgs/tails.webp'
-    img.alt = 'Tails'
-    img.style.width = '80%';
-    header.innerHTML = 'Tails Calculator';
-    pageTitle.innerHTML = 'Tails Calculator';
-    body.style.background = 'linear-gradient(45deg, #ff5e00, #ffc904)';
-    calculator.style.backgroundColor = '#ffae00';
-    calculator.style.borderColor = '#ff6a00';
-    calculatorNumfield.style.backgroundColor = '#fff4d4';
+    img.src = 'imgs/wilk.png'
+    img.alt = 'Wilk'
+    img.style.width = '120%';
+    header.innerHTML = 'Wilk Calculator';
+    header.style.color = 'black';
+    settingIcon.style.color = 'black';
+    pageTitle.innerHTML = 'Wilk Calculator';
+    body.style.background = 'linear-gradient(45deg, #40cfef, #ffffff)';
+    calculator.style.backgroundColor = '#d1fbff';
+    calculator.style.borderColor = '#6cf3ff';
+    calculatorNumfield.style.backgroundColor = 'white';
+    expressions.style.color = 'black';
     calculatorButtons.forEach(function(button){
-        button.style.backgroundColor = '#ff6a00';
+        button.style.backgroundColor = '#6cf3ff';
+        button.style.color = 'black';
     });
 });

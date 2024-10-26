@@ -66,7 +66,7 @@ img{
     text-align: end;
     padding-right: 40px;
     padding-top: 20px;
-    color: #001a39;
+    color: white;
     min-height: 40px;
 }
 
@@ -79,7 +79,7 @@ img{
     font-size: 60px;
     text-align: end;
     padding: 0px 10px;
-    color: #001a39;
+    color: black;
     overflow-x: hidden; /* Hide overflow horizontally */
     white-space: nowrap; /* Prevent text wrapping */
     text-align: right; /* Align text to the right */
